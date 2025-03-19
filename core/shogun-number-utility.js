@@ -1,5 +1,5 @@
 export class ShogunNumberUtility {
-    getRandomIntegerNumber (fromInclusive, toExlusive) {
+    getRandomIntegerNumber(fromInclusive, toExclusive) {
         if (typeof fromInclusive !== 'number' || typeof toExclusive !== 'number') {
             throw new TypeError('Both arguments must be numbers.');
         }
@@ -8,6 +8,5 @@ export class ShogunNumberUtility {
         }
 
         return Math.floor(Math.random() * (toExclusive - fromInclusive)) + fromInclusive;
-    }
     }
 }
