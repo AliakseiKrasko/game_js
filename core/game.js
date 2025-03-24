@@ -1,9 +1,15 @@
 import {GameStatuses} from "./game-statuses";
+import {ShogunNumberUtility} from "./shogun-number-utility";
 
 export class Game {
     #status = GameStatuses.SETTINGS
 
     #gooslePosition = null
+    #numberUtility;// = new ShogunNumberUtility()
+
+    constructor(somethingSimilarToNumberUtility) {
+        this.#numberUtility = somethingSimilarToNumberUtility
+    }
 
     #settings = {
         gridSize: {
@@ -19,8 +25,8 @@ export class Game {
         }
         this.#status = GameStatuses.IN_PROGRESS
         this.#gooslePosition = {
-            x: 0,
-            y: 0
+            x: this.#numberUtility.getRandomIntegerNumber(0, this.#settings.gridSize.columnsCount),
+            y: this.#numberUtility.getRandomIntegerNumber(0, this.#settings.gridSize.rowsCount),
         }
     }
 

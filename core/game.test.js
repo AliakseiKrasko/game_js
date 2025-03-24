@@ -1,9 +1,11 @@
 import {Game} from "./game.js"
 import {GameStatuses} from "./game-statuses";
+import {ShogunNumberUtility} from "./shogun-number-utility";
 
 describe('game', () => {
     it('game should be created and return status', () => {
-        const game = new Game()
+        const numberUtil = new ShogunNumberUtility()
+        const game = new Game(numberUtil)
         expect(game.status).toBe(GameStatuses.SETTINGS)
     })
     it('game should be created and return status', async () => {
